@@ -7,7 +7,7 @@ public class ToDoList {
     public ToDoList(int size) {
     	
         myTasks = new Task[size];
-        taskCounter = 1;
+        taskCounter = 0;
        
         
     }
@@ -22,7 +22,7 @@ public class ToDoList {
     	if(taskCounter < 10){
     		
     		Task nextTask = new Task(name);
-    		myTasks[taskCounter - 1] = nextTask;
+    		myTasks[taskCounter] = nextTask;
     		
     		System.out.println("Task added at index " + taskCounter);
     		
@@ -69,22 +69,23 @@ public class ToDoList {
         boolean RunLoop = true;
         
         while(RunLoop){
-        	if(myTasks[i] == null){
-        		RunLoop = false;
-        	}else{
-        		int pos = i+1;
-        		out += "(" + pos + "): " + myTasks[i].toString() + "\n";
-        		if(i < 10){
-        			i++;
-        			RunLoop = true;
-        		}else{
+        	int arraySize = myTasks.length;
+        	if(i < arraySize){
+        		if(myTasks[i] == null || i >= 10){
         			RunLoop = false;
+        		}else{
+        			int pos = i;
+        			out += "(" + pos + "): " + myTasks[i].toString() + "\n";
+        			if(i < 10){
+        				i++;
+            			RunLoop = true;
+        			}else{
+        				RunLoop = false;
+        			}
         		}
         	}
-        	
-        	
-        }
-
+        } 
+        
         return out;
-    }
+   }
 }

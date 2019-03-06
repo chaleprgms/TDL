@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /* TODO----------------
  * 
- * FIX toString(), DOESNT PRINT ALL ARRAY VALUES
+ * ADD toString() FOR THE PROGRAM
  * 
  * CLEAN UP CODE
  * 
