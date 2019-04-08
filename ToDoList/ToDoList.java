@@ -65,26 +65,15 @@ public class ToDoList {
         out += "--------------\n";
         // Add each task and its status to out.
         // Summon Task's toString to help.
-        int i = 0;
-        boolean RunLoop = true;
         
-        while(RunLoop){
-        	int arraySize = myTasks.length;
-        	if(i < arraySize){
-        		if(myTasks[i] == null || i >= 10){
-        			RunLoop = false;
-        		}else{
-        			int pos = i;
-        			out += "(" + pos + "): " + myTasks[i].toString() + "\n";
-        			if(i < 10){
-        				i++;
-            			RunLoop = true;
-        			}else{
-        				RunLoop = false;
-        			}
-        		}
+        for(int i = 0; i < myTasks.length; i++){
+        	if(myTasks[i] == null){
+        		//ignore
+        	}else{
+        		int pos = i+1;
+        		out += "(" + pos + "): " + myTasks[i].toString() + "\n";
         	}
-        } 
+        }
         
         return out;
    }
